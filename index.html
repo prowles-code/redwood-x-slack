@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Redwood Software × Slack Enterprise+ — Value Assessment</title>
+<style>
+:root{color-scheme:light;
+  --sf:#0176D3;--sf-d:#014486;--navy:#032D60;--ink:#16181D;--mut:#5A6270;--line:#E3E7EE;
+  --bg:#FFFFFF;--alt:#F4F6F9;--rw:#C8102E;--rw-l:#FCEBEE;--ok:#0B6B3D;--ok-l:#E6F4EC;--warn:#8A5A00;--warn-l:#FFF4DB;
+  --r:14px;--sh:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.06)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:var(--sf)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:104px 0}
+section.alt{background:var(--alt)}
+section.dark{background:var(--navy);color:#fff}
+section.dark .lede,section.dark p{color:#C9D6EA}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sf);margin:0 0 12px}
+section.dark .eyebrow{color:#7FC1FF}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.08;margin:0}
+h2{font-size:clamp(28px,4vw,44px);max-width:22ch;margin-bottom:16px}
+h3{font-size:20px;line-height:1.25}
+.lede{font-size:18px;color:var(--mut);max-width:68ch;margin:0 0 48px}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:960px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}section{padding:72px 0}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--sh)}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:#EAF4FD;color:var(--sf-d)}
+.tag.rw{background:var(--rw-l);color:var(--rw)}
+.tag.ok{background:var(--ok-l);color:var(--ok)}
+.tag.est{background:var(--warn-l);color:var(--warn)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:transform .2s ease-out,background .2s}
+.btn.pri{background:var(--sf);color:#fff}.btn.pri:hover{background:var(--sf-d)}
+.btn.sec{background:transparent;color:inherit;border-color:currentColor}
+.btn.ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #7FC1FF;outline-offset:2px}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:50;background:rgba(3,45,96,.92);backdrop-filter:saturate(1.4) blur(10px);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.lock{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em}
+.lock .x{opacity:.5;font-weight:400}
+.wm-rw{display:inline-flex;align-items:center;gap:6px}
+.wm-rw i{width:14px;height:14px;border-radius:3px;background:var(--rw);display:inline-block}
+.wm-sl{display:inline-flex;align-items:center;gap:6px}
+.wm-sl i{width:14px;height:14px;border-radius:50%;background:var(--sf);display:inline-block;box-shadow:inset 0 0 0 3px #7FC1FF}
+nav.top ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;font-size:14px}
+nav.top ul a{color:#C9D6EA;text-decoration:none}nav.top ul a:hover{color:#fff}
+.burger{display:none;background:none;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px}
+@media(max-width:900px){.burger{display:block}nav.top ul{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--navy);padding:16px 24px 24px;gap:14px}nav.top ul.open{display:flex}}
+
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,rgba(1,118,211,.45),transparent 60%),radial-gradient(700px 400px at -5% 110%,rgba(200,16,46,.28),transparent 60%),var(--navy);color:#fff;padding:96px 0 104px}
+.conf{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9FB6D6;margin-bottom:28px}
+.hero h1{font-size:clamp(36px,6vw,68px);max-width:17ch;line-height:1.04}
+.hero h1 em{font-style:normal;color:#7FC1FF}
+.hero .sub{font-size:clamp(17px,2vw,20px);color:#C9D6EA;max-width:62ch;margin:24px 0 28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:44px}
+.chip{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#E4ECF7}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:20px}
+.stat b{display:block;font-size:clamp(26px,3.2vw,38px);letter-spacing:-.02em;line-height:1.1}
+.stat span{display:block;font-size:13px;color:#B7C7DE;margin-top:6px}
+.stat small{display:block;font-size:11px;color:#8097B8;margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
+.stat.offer{background:rgba(1,118,211,.22);border-color:rgba(127,193,255,.5)}
+
+/* pain flip cards */
+.pain{position:relative;min-height:340px;perspective:1400px;cursor:pointer;border-radius:var(--r)}
+.pain .in{position:absolute;inset:0;transition:transform .4s ease-out;transform-style:preserve-3d}
+.pain.flip .in{transform:rotateY(180deg)}
+.pain .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);padding:26px;display:flex;flex-direction:column;border:1px solid var(--line);box-shadow:var(--sh);background:#fff}
+.pain .front{border-top:4px solid var(--rw)}
+.pain .back{transform:rotateY(180deg);background:var(--navy);color:#fff;border:0}
+.pain p{color:var(--mut);margin:10px 0 0;font-size:15px}
+.pain .back p{color:#C9D6EA}
+.pm{display:flex;gap:12px;margin-top:auto;padding-top:18px}
+.pm div{flex:1;background:var(--rw-l);border-radius:10px;padding:10px 12px}
+.pm b{display:block;font-size:22px;color:var(--rw);letter-spacing:-.02em}
+.pm span{font-size:12px;color:#6B2A34;line-height:1.35;display:block}
+.steps{list-style:none;padding:0;margin:14px 0 0;font-size:14.5px}
+.steps li{padding:6px 0 6px 22px;position:relative;color:#E4ECF7}
+.steps li:before{content:"→";position:absolute;left:0;color:#7FC1FF}
+.impact{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);font-size:14px;color:#fff}
+.hint{font-size:12px;color:var(--mut);margin-top:10px}
+.pain .back .hint{color:#8FA6C6}
+@media(prefers-reduced-motion:reduce){.pain .in{transition:none}}
+
+/* platform */
+.plat h3{margin:10px 0 8px}
+.plat p{color:var(--mut);font-size:15px;margin:0 0 12px}
+.plat .rep{font-size:13px;color:var(--ink);background:var(--alt);border-radius:8px;padding:8px 10px}
+.keep{margin-top:28px;border:2px dashed var(--sf);border-radius:var(--r);padding:22px 24px;background:#F3F9FE;font-size:17px}
+.keep b{color:var(--sf-d)}
+
+/* journey */
+.jr{display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:j}
+@media(max-width:960px){.jr{grid-template-columns:1fr}}
+.js{position:relative;padding:22px 18px 22px;border-left:1px solid var(--line)}
+.js:first-child{border-left:0}
+@media(max-width:960px){.js{border-left:0;border-top:1px solid var(--line)}.js:first-child{border-top:0}}
+.js .n{width:34px;height:34px;border-radius:50%;background:var(--sf);color:#fff;display:grid;place-items:center;font-weight:700;margin-bottom:12px}
+.js h3{font-size:17px}
+.js .pr{font-size:13px;font-weight:600;color:var(--sf-d);margin:8px 0}
+.js p{font-size:14px;color:var(--mut);margin:0 0 10px}
+.js .rp{font-size:12.5px;color:var(--rw);font-weight:600}
+
+/* timeline deep dive */
+.tl{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--sh)}
+.tlrow{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:end;margin-bottom:14px}
+@media(max-width:640px){.tlrow{grid-template-columns:1fr}}
+.tlrow .lab{font-size:14px;font-weight:600}
+.tlrow .lab small{display:block;font-weight:400;color:var(--mut)}
+.bars{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;height:120px;align-items:end;position:relative}
+.bars i{display:block;border-radius:3px 3px 0 0;transition:height .3s ease-out}
+.bars.defer i{background:#E7A3AE}.bars.defer i.post{background:var(--rw)}
+.bars.now i{background:var(--sf)}
+.axis{display:grid;grid-template-columns:150px 1fr;gap:14px;font-size:12px;color:var(--mut)}
+@media(max-width:640px){.axis{grid-template-columns:1fr}.axis>span:first-child{display:none}}
+.axis .ticks{position:relative;height:36px}
+.axis .ticks b{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap;font-weight:600;color:var(--ink);font-size:12px}
+.axis .ticks b:before{content:"";display:block;width:2px;height:10px;background:currentColor;margin:0 auto 2px}
+.tlsum{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+@media(max-width:640px){.tlsum{grid-template-columns:1fr}}
+.tlsum div{background:var(--alt);border-radius:10px;padding:14px}
+.tlsum b{display:block;font-size:24px;letter-spacing:-.02em}
+.tlsum span{font-size:13px;color:var(--mut)}
+
+/* mock slack */
+.mock{display:grid;grid-template-columns:220px 1fr;border-radius:var(--r);overflow:hidden;border:1px solid #2B2F36;box-shadow:0 20px 60px rgba(0,0,0,.35);background:#1A1D21;color:#D1D2D3;font-size:14px;min-height:430px}
+@media(max-width:760px){.mock{grid-template-columns:1fr}.mock .side{display:none}}
+.mock .side{background:#19171D;border-right:1px solid #2B2F36;padding:16px 12px}
+.mock .ws{font-weight:800;color:#fff;margin-bottom:16px;padding:0 6px}
+.mock .ch{padding:5px 8px;border-radius:6px;color:#B9BBBE;cursor:default}
+.mock .ch.on{background:var(--sf);color:#fff}
+.mock .main{display:flex;flex-direction:column}
+.mock .tabs{display:flex;gap:0;border-bottom:1px solid #2B2F36}
+.mock .tabs button{background:none;border:0;color:#B9BBBE;font:inherit;font-size:13.5px;font-weight:600;padding:14px 18px;cursor:pointer;border-bottom:2px solid transparent}
+.mock .tabs button[aria-selected=true]{color:#fff;border-bottom-color:#7FC1FF}
+.mock .pane{padding:18px 20px;display:none}
+.mock .pane.on{display:block}
+.mock .q{background:#222529;border:1px solid #3A3E44;border-radius:10px;padding:10px 14px;color:#fff;margin-bottom:16px}
+.mock .msg{display:grid;grid-template-columns:36px 1fr;gap:10px;margin-bottom:14px}
+.mock .av{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:13px}
+.mock .nm{font-weight:700;color:#fff}.mock .nm small{font-weight:400;color:#9A9B9E;margin-left:6px}
+.mock .src{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.mock .src span{font-size:12px;background:#2B2F36;border-radius:6px;padding:3px 8px;color:#C9CACC}
+.mock .act{display:flex;gap:8px;margin-top:10px}
+.mock .act span{font-size:12.5px;border:1px solid #4A4E54;border-radius:6px;padding:5px 10px;color:#fff}
+.mock ul{margin:6px 0 0;padding-left:18px}
+.illus{font-size:12px;color:#8FA6C6;margin-top:12px}
+
+/* agents */
+.agent{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:24px}
+.agent h3{color:#fff;margin-bottom:14px}
+.agent dl{margin:0;display:grid;gap:12px}
+.agent dt{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7FC1FF}
+.agent dd{margin:2px 0 0;color:#D6E0EE;font-size:15px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:400px 1fr;gap:28px;align-items:start}
+@media(max-width:1020px){.calc{grid-template-columns:1fr}}
+.inputs{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
+.presets{display:flex;padding:14px;gap:6px;border-bottom:1px solid var(--line);background:var(--alt)}
+.presets button{flex:1;font:inherit;font-size:14px;font-weight:600;padding:9px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
+.presets button.on{background:var(--sf);color:#fff;border-color:var(--sf)}
+.pnote{font-size:12.5px;color:var(--mut);padding:10px 16px 0;margin:0}
+details.grp{border-top:1px solid var(--line)}
+details.grp:first-of-type{border-top:0}
+details.grp summary{list-style:none;cursor:pointer;padding:15px 16px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+details.grp summary::-webkit-details-marker{display:none}
+details.grp summary:after{content:"+";font-size:20px;color:var(--sf);font-weight:400}
+details.grp[open] summary:after{content:"–"}
+details.grp summary small{font-weight:500;color:var(--mut);font-size:12px;margin-left:8px}
+.fld{padding:8px 16px 14px}
+.fld .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.fld label{font-size:13.5px;font-weight:600}
+.fld .num{width:110px;font:inherit;font-size:14px;text-align:right;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.fld input[type=range]{width:100%;accent-color:var(--sf);margin:8px 0 2px}
+.fld .nt{font-size:12px;color:var(--mut);line-height:1.4}
+.prov{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;font-size:10.5px;font-weight:800;font-style:normal;margin-left:6px;cursor:help;vertical-align:1px;position:relative}
+.prov.c{background:#EAF4FD;color:var(--sf-d)}.prov.y{background:var(--ok-l);color:var(--ok)}.prov.e{background:var(--warn-l);color:var(--warn)}
+.prov .tip{display:none;position:absolute;left:50%;bottom:130%;transform:translateX(-50%);width:280px;background:var(--ink);color:#fff;font-weight:400;font-size:12.5px;line-height:1.45;padding:10px 12px;border-radius:8px;z-index:20;text-align:left}
+.prov .tip b{display:block;color:#7FC1FF;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.prov:hover .tip,.prov:focus .tip{display:block}
+.fld:first-child .prov .tip{bottom:auto;top:130%}
+.results{display:grid;gap:20px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--sh)}
+.kpi b{display:block;font-size:26px;letter-spacing:-.02em;line-height:1.15}
+.kpi span{font-size:12.5px;color:var(--mut);line-height:1.35;display:block;margin-top:4px}
+.kpi.hi{background:var(--navy);color:#fff;border-color:var(--navy)}.kpi.hi span{color:#B7C7DE}
+.kpi.neg b{color:var(--rw)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
+.panel h3{font-size:17px;margin-bottom:6px}
+.panel .nt{font-size:13px;color:var(--mut);margin:0 0 14px}
+.scenRow{display:grid;grid-template-columns:110px 1fr 110px;gap:12px;align-items:center;padding:7px 8px;border-radius:8px;cursor:pointer}
+.scenRow.on{background:#EAF4FD}
+.scenName{font-size:14px;font-weight:600}
+.scenTrack{height:14px;background:var(--alt);border-radius:999px;overflow:hidden}
+.scenTrack i{display:block;height:100%;background:var(--sf);border-radius:999px;transition:width .3s ease-out}
+.scenVal{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
+th:first-child,td:first-child{text-align:left}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:700}
+tr.tot td{font-weight:800;border-bottom:0}
+.pos{color:var(--ok)}.negv{color:var(--rw)}
+.drvbtn{background:none;border:0;font:inherit;font-weight:600;color:var(--sf-d);cursor:pointer;padding:0;text-align:left}
+.drvbtn:before{content:"▸ ";color:var(--sf)}
+.drvbtn[aria-expanded=true]:before{content:"▾ "}
+.bar{height:8px;background:var(--alt);border-radius:999px;overflow:hidden;width:100%;min-width:80px}
+.bar i{display:block;height:100%;background:var(--sf)}
+tr.detail td{text-align:left;background:#FAFBFC}
+tr.detail code{display:block;white-space:normal;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;margin:8px 0}
+tr.detail .src{font-size:13px;color:var(--mut);margin-top:10px}
+tr.detail .src div{margin-top:6px}
+.enabled{font-size:12px;color:var(--sf-d);margin-top:4px}
+.simple{font-size:17px;line-height:1.55}
+.simple .big{font-weight:800;color:var(--ok)}
+.need ol{margin:8px 0 0;padding-left:20px}
+.need li{margin-bottom:6px}
+.sendrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+#sendPanel{display:none;margin-top:14px}
+#sendPanel textarea{width:100%;height:220px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;border:1px solid var(--line);border-radius:8px;padding:10px}
+#sendMsg{display:none;margin-top:10px;font-size:13px;background:var(--warn-l);color:var(--warn);padding:8px 12px;border-radius:8px}
+
+/* proof */
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:860px){.proof{grid-template-columns:1fr}}
+.big-stat{font-size:clamp(56px,8vw,96px);font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--sf)}
+blockquote{margin:0;font-size:24px;line-height:1.35;letter-spacing:-.01em;font-weight:600}
+blockquote cite{display:block;font-size:14px;font-style:normal;font-weight:500;color:var(--mut);margin-top:14px}
+
+/* roadmap */
+.phase{position:relative;padding-top:28px}
+.phase:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:4px;background:var(--sf)}
+.phase:nth-child(1):before{background:var(--rw)}
+.phase .when{font-size:13px;font-weight:700;color:var(--sf-d);text-transform:uppercase;letter-spacing:.08em}
+.phase h3{margin:6px 0 12px}
+.phase ul{margin:0 0 14px;padding-left:18px;color:var(--mut);font-size:15px}
+.phase .ms{font-size:14px;border-top:1px solid var(--line);padding-top:12px}
+.phase .ms b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+
+/* close */
+.close h2{max-width:none}
+.close .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+footer{background:#021D40;color:#8FA6C6;font-size:13px;padding:36px 0}
+footer p{margin:6px 0;max-width:90ch}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .35s ease-out,transform .35s ease-out}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media print{nav.top,.presets,.sendrow,.burger{display:none}.rv{opacity:1;transform:none}.pain{min-height:auto}.pain .in{position:static}.pain .face{position:static;transform:none;margin-bottom:8px}}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Primary">
+  <div class="wrap">
+    <div class="lock"><span class="wm-rw"><i aria-hidden="true"></i>Redwood</span><span class="x">×</span><span class="wm-sl"><i aria-hidden="true"></i>Slack</span></div>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">☰</button>
+    <ul id="navlinks">
+      <li><a href="#roi">Value model</a></li>
+      <li><a href="#problem">The problem</a></li>
+      <li><a href="#platform">Enterprise+</a></li>
+      <li><a href="#timing">Timing</a></li>
+      <li><a href="#agents">Agentforce</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="conf">Confidential · Prepared for Redwood Software Leadership · September 2026</div>
+    <h1>Upgrade to Enterprise+ now and <em>lock $30</em> before January's renewal reprices every seat.</h1>
+    <p class="sub">Redwood already runs on Slack. The upgrade adds AI, Enterprise Search and Salesforce-native selling to the same workspace. Signing before renewal means the whole two-year term is priced at today's offer instead of the renewal rate.</p>
+    <div class="chips" aria-label="Products in scope">
+      <span class="chip">Slack Enterprise+</span><span class="chip">Slack AI</span><span class="chip">Enterprise Search</span><span class="chip">Sales Elevate</span><span class="chip">Agentforce in Slack</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>711</b><span>Paid Slack seats at Redwood today</span><small>Current contract</small></div>
+      <div class="stat"><b>Jan 2027</b><span>Slack renewal — about four months out</span><small>Current contract</small></div>
+      <div class="stat offer"><b>$30</b><span>Per user per month, locked for a two-year term. Offer valid through 10/31/2026</span><small>Subject to final approval &amp; written offer</small></div>
+      <div class="stat"><b id="heroSave">—</b><span>Licence saving vs deferring to renewal, before any productivity benefit</span><small>Live from the value model below</small></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ROI -->
+<section id="roi" style="padding-top:72px">
+  <div class="wrap">
+    <p class="eyebrow rv">Value model</p>
+    <h2 class="rv">Change any input and see the result.</h2>
+    <p class="lede">The Redwood inputs are our estimates, there to give you a starting point. Adjust them until you'd be happy to defend them, and all three scenarios update instantly. Badges show where each number comes from: <i class="prov c" style="cursor:default">i</i> confirmed term, <i class="prov y" style="cursor:default">i</i> Redwood's own data, <i class="prov e" style="cursor:default">?</i> our estimate, please correct.</p>
+    <div class="calc">
+      <div class="inputs" id="inputs">
+        <div class="presets" role="group" aria-label="Scenario">
+          <button data-p="cons">Conservative</button><button data-p="base" class="on">Base</button><button data-p="ups">Upside</button>
+        </div>
+        <p class="pnote">Scenarios only change the uncertain inputs: AI spend growth, how much of it Slack absorbs, adoption rates and the renewal rate. Headcount, hours and costs stay fixed.</p>
+        <div id="groups"></div>
+      </div>
+      <div class="results">
+        <div class="kpis">
+          <div class="kpi hi"><b id="hBenefit">—</b><span>Annual benefit at full adoption</span></div>
+          <div class="kpi" id="kIncr"><b id="hIncr">—</b><span>Extra cost per year (fixed by contract)</span></div>
+          <div class="kpi"><b id="hPay">—</b><span>Payback</span></div>
+          <div class="kpi"><b id="hLic" class="pos">—</b><span>Licence saving vs deferring</span></div>
+        </div>
+        <div class="panel">
+          <h3>Annual benefit, all three scenarios</h3>
+          <p class="nt">Every bar uses your current inputs. Click a scenario to load it.</p>
+          <div id="scenChart"></div>
+        </div>
+        <div class="panel">
+          <h3>Quick cost check: upgrade now vs at renewal</h3>
+          <p class="nt">No productivity assumptions, only what Slack costs on each path over the 24-month term.</p>
+          <table><thead><tr><th>Total Slack cost</th><th id="hPre">To renewal</th><th id="hPost">After renewal</th><th>24-month total</th></tr></thead><tbody id="licTbl"></tbody></table>
+          <p class="nt" id="licNote" style="margin-top:12px"></p>
+        </div>
+        <div class="panel">
+          <h3>Where the value comes from</h3>
+          <p class="nt">Click a driver to see the exact calculation, where each input comes from and which capability produces it.</p>
+          <table><thead><tr><th>Driver</th><th>Annual value</th><th style="width:30%">Share</th></tr></thead><tbody id="drvTbl"></tbody></table>
+          <p class="nt" id="concNote" style="margin-top:12px"></p>
+          <p class="nt" id="rampNote"></p>
+        </div>
+        <div class="panel" style="background:#F3F9FE;border-color:#BFDDF6">
+          <h3>The short version</h3>
+          <p class="simple" id="simple"></p>
+        </div>
+        <div class="panel need">
+          <h3>What we still need from you</h3>
+          <p class="nt" style="margin:0">These three inputs would change the model most, in this order:</p>
+          <ol><li>Your actual annual spend on Claude, OpenAI and Gemini, including API and consumption.</li><li>How that spend splits between engineering/product work and general knowledge work.</li><li>How many people work opportunities in Salesforce, and your fully loaded cost assumption.</li></ol>
+          <div class="sendrow"><button class="btn pri" id="sendBtn">Show my numbers to send</button><button class="btn ghost" id="copyBtn">Copy summary</button><button class="btn ghost" id="printBtn">Print / PDF</button></div>
+          <div id="sendMsg" role="status"></div>
+          <div id="sendPanel"><textarea id="sendText" aria-label="Your figures" readonly></textarea><p class="nt" style="margin-top:8px">Select the text above and copy it, or <a id="mailLink" href="#">open it in your email client</a>.</p></div>
+          <p class="nt" style="margin-top:12px">Nothing on this page is recorded or sent. Your figures stay in your browser until you choose to copy or email them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <p class="eyebrow rv">The problem</p>
+    <h2 class="rv">Redwood's own product is automation. A lot of its internal work still isn't.</h2>
+    <p class="lede rv">Four costs sit inside today's Slack Grid setup. Each one is an input in the value model below, so you can check what we assumed and change it. Click a card to see the fix.</p>
+    <div class="grid g4">
+      <div class="pain rv" tabindex="0" role="button" aria-expanded="false" aria-label="AI spend spread across vendors — show the Slack answer">
+        <div class="in">
+          <div class="face front">
+            <span class="tag rw">AI tool sprawl</span>
+            <h3 style="margin-top:12px">Paying several AI vendors for search and drafting</h3>
+            <p>Claude, OpenAI and Gemini licences all overlap on the same everyday work: finding things, summarising and drafting. None of them can see what happens in Slack.</p>
+            <div class="pm"><div><b>~$410K</b><span>est. annual AI spend (model input)</span></div><div><b>0</b><span>of those tools see Slack context</span></div></div>
+            <div class="hint">Click for the Slack answer ↻</div>
+          </div>
+          <div class="face back">
+            <span class="tag">Slack AI</span>
+            <h3 style="margin-top:12px;color:#fff">One AI layer where the work already happens</h3>
+            <ul class="steps"><li>Recaps, thread and channel summaries built into every channel</li><li>AI answers grounded in Redwood's own messages and files</li><li>Move general knowledge-work licences onto Slack. Keep engineering AI tools as they are</li></ul>
+            <div class="impact"><b>CFO lens:</b> the one driver in the model that's hard cash. It cuts an AI budget line that's growing.</div>
+          </div>
+        </div>
+      </div>
+      <div class="pain rv" tabindex="0" role="button" aria-expanded="false" aria-label="CRM admin tax on sellers — show the Slack answer">
+        <div class="in">
+          <div class="face front">
+            <span class="tag rw">Seller admin</span>
+            <h3 style="margin-top:12px">Reps keep Salesforce up to date by hand</h3>
+            <p>Updating opportunities, chasing deal status and copying notes into CRM takes selling time away. It happens in a separate tab from where the deal is discussed.</p>
+            <div class="pm"><div><b>4 hrs</b><span>per rep per week on CRM admin (est.)</span></div><div><b>~100</b><span>sellers working deals (est.)</span></div></div>
+            <div class="hint">Click for the Slack answer ↻</div>
+          </div>
+          <div class="face back">
+            <span class="tag">Sales Elevate</span>
+            <h3 style="margin-top:12px;color:#fff">Work the pipeline without leaving Slack</h3>
+            <ul class="steps"><li>Opportunity lists and deal alerts inside Slack</li><li>Update stage, amount and next step inline</li><li>Deal channels linked to the Salesforce record</li></ul>
+            <div class="impact"><b>Revenue lens:</b> the time saved goes back into customer conversations, not data entry.</div>
+          </div>
+        </div>
+      </div>
+      <div class="pain rv" tabindex="0" role="button" aria-expanded="false" aria-label="Knowledge buried across tools — show the Slack answer">
+        <div class="in">
+          <div class="face front">
+            <span class="tag rw">Buried knowledge</span>
+            <h3 style="margin-top:12px">The answer exists somewhere, just not in one place</h3>
+            <p>Decisions sit in Slack threads, specs in documents and customer history in CRM. Every "where did we land on…?" costs a search in each system, or a message to a colleague.</p>
+            <div class="pm"><div><b>25%</b><span>of time on basic search and admin (est.)</span></div><div><b>1</b><span>search bar that should cover all of it</span></div></div>
+            <div class="hint">Click for the Slack answer ↻</div>
+          </div>
+          <div class="face back">
+            <span class="tag">Enterprise Search</span>
+            <h3 style="margin-top:12px;color:#fff">Ask once, search everything</h3>
+            <ul class="steps"><li>One AI search across Slack and connected apps</li><li>Answers link to their sources and respect permissions</li><li>Only on Enterprise+. Grid doesn't include it</li></ul>
+            <div class="impact"><b>CIO lens:</b> fewer interruptions for teams that already get lots of questions, with no new tool to roll out.</div>
+          </div>
+        </div>
+      </div>
+      <div class="pain rv" tabindex="0" role="button" aria-expanded="false" aria-label="Renewal repricing — show the answer">
+        <div class="in">
+          <div class="face front">
+            <span class="tag rw">Timing</span>
+            <h3 style="margin-top:12px">Upgrading at renewal costs more for the same thing</h3>
+            <p>Wait until January and you get the same upgrade at the renewal rate, applied to a larger headcount. The only thing that changes is the price.</p>
+            <div class="pm"><div><b>4 mo</b><span>until your January renewal</span></div><div><b>10/31</b><span>$30 offer expires</span></div></div>
+            <div class="hint">Click for the answer ↻</div>
+          </div>
+          <div class="face back">
+            <span class="tag">Upgrade now</span>
+            <h3 style="margin-top:12px;color:#fff">Lock the rate, then grow into it</h3>
+            <ul class="steps"><li>$30 per user per month for the full two-year term</li><li>Seats added during the term stay at $30</li><li>Quarterly billing across the term</li></ul>
+            <div class="impact"><b>Board lens:</b> you know the collaboration cost for two years, whatever headcount does.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM -->
+<section id="platform" class="alt">
+  <div class="wrap">
+    <p class="eyebrow rv">The platform</p>
+    <h2 class="rv">Same workspace, with more built in.</h2>
+    <p class="lede rv">Enterprise+ adds to the Grid org Redwood already runs. It isn't a migration. Here's what each addition gives you and which cost it takes out.</p>
+    <div class="grid g4">
+      <div class="card plat rv"><span class="tag">AI</span><h3>Slack AI</h3><p>Summaries, recaps, huddle notes and AI answers grounded in Redwood's conversations.</p><div class="rep"><b>Replaces:</b> general-purpose AI seats used for search and drafting</div></div>
+      <div class="card plat rv"><span class="tag">Search</span><h3>Enterprise Search</h3><p>One permission-aware search across Slack and the connected apps where Redwood's knowledge lives.</p><div class="rep"><b>Replaces:</b> searching tool by tool, and "does anyone know…?" messages</div></div>
+      <div class="card plat rv"><span class="tag">Sales</span><h3>Sales Elevate</h3><p>Salesforce pipeline, alerts and record updates inside Slack, where deals are discussed anyway.</p><div class="rep"><b>Replaces:</b> manual CRM updates and chasing deal status</div></div>
+      <div class="card plat rv"><span class="tag">Agents</span><h3>Agentforce in Slack</h3><p>Agents that take action inside channels: summarising, routing, updating records and preparing the next step.</p><div class="rep"><b>Replaces:</b> copy-and-paste handoffs between teams</div></div>
+    </div>
+    <div class="keep rv"><b>Keep Grid. Keep your engineering AI stack.</b> Channels, org structure, admin model and integrations stay exactly as they are. The model also purposely leaves out engineering and product AI spend. Redwood builds agentic automation, and Slack isn't meant to replace those tools.</div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="wrap">
+    <p class="eyebrow rv">Journey map</p>
+    <h2 class="rv">From first conversation to renewal, in one place.</h2>
+    <p class="lede rv">Redwood's revenue cycle, stage by stage, with the Enterprise+ capability at each step and what it replaces.</p>
+    <div class="jr card rv" style="padding:0">
+      <div class="js"><div class="n">1</div><h3>Pipeline</h3><div class="pr">Sales Elevate</div><p>New opportunities and alerts land in Slack for the owning seller.</p><div class="rp">Replaces: checking CRM dashboards</div></div>
+      <div class="js"><div class="n">2</div><h3>Work the deal</h3><div class="pr">Deal channels + Agentforce</div><p>The account team works in one channel linked to the record. An agent keeps next steps up to date.</p><div class="rp">Replaces: manual record updates</div></div>
+      <div class="js"><div class="n">3</div><h3>Answer the buyer</h3><div class="pr">Enterprise Search</div><p>Security questionnaires, past answers and specs come up in one search.</p><div class="rp">Replaces: pinging SMEs</div></div>
+      <div class="js"><div class="n">4</div><h3>Close &amp; hand off</h3><div class="pr">Slack AI recaps</div><p>The deal history is summarised for the onboarding team automatically.</p><div class="rp">Replaces: handoff docs written by hand</div></div>
+      <div class="js"><div class="n">5</div><h3>Expand &amp; renew</h3><div class="pr">Agentforce in Slack</div><p>An agent pulls together usage, support and deal context ahead of every renewal.</p><div class="rp">Replaces: pulling data by hand before QBRs</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMING DEEP DIVE -->
+<section id="timing" class="alt">
+  <div class="wrap">
+    <p class="eyebrow rv">Deep dive · Timing</p>
+    <h2 class="rv">The same 24 months, priced two ways.</h2>
+    <p class="lede rv">Monthly Slack cost under each path over the two-year term being offered. Both paths are priced for the same expected headcount at renewal. This updates live as you change inputs in the value model.</p>
+    <div class="tl rv">
+      <div class="tlrow"><div class="lab">Defer to renewal<small>Current rate, then renewal rate</small></div><div class="bars defer" id="barsDefer" aria-hidden="true"></div></div>
+      <div class="tlrow"><div class="lab">Upgrade now<small>$30 locked for the term</small></div><div class="bars now" id="barsNow" aria-hidden="true"></div></div>
+      <div class="axis"><span></span><div class="ticks" id="ticks"></div></div>
+      <div class="tlsum">
+        <div><b id="tlDef">—</b><span>24-month cost, deferring</span></div>
+        <div><b id="tlNow">—</b><span>24-month cost, upgrading now</span></div>
+        <div><b id="tlDiff" class="pos">—</b><span id="tlDiffLab">Difference</span></div>
+      </div>
+      <p class="hint" style="margin-top:14px">The renewal-path rate is an illustrative estimate you can change. It is not a quote. The $30 rate is valid through 10/31/2026, subject to final approval and a written offer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOCK UI DEEP DIVE -->
+<section id="inaction" class="dark">
+  <div class="wrap">
+    <p class="eyebrow rv">Deep dive · In the product</p>
+    <h2 class="rv" style="color:#fff">What an ordinary Tuesday looks like on Enterprise+.</h2>
+    <p class="lede rv">Three moments from a seller's day. Click through the tabs.</p>
+    <div class="mock rv">
+      <div class="side">
+        <div class="ws">Redwood</div>
+        <div class="ch">＃ general</div><div class="ch on" id="mockCh">＃ deal-emea-sap-migration</div><div class="ch">＃ solutions-engineering</div><div class="ch">＃ product-rmj</div><div class="ch">＃ sales-leadership</div>
+      </div>
+      <div class="main">
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true" aria-controls="t1" id="b1" data-ch="＃ deal-emea-sap-migration">Enterprise Search</button>
+          <button role="tab" aria-selected="false" aria-controls="t2" id="b2" data-ch="＃ deal-emea-sap-migration">Deal channel</button>
+          <button role="tab" aria-selected="false" aria-controls="t3" id="b3" data-ch="＃ sales-leadership">Daily recap</button>
+        </div>
+        <div class="pane on" id="t1" role="tabpanel" aria-labelledby="b1">
+          <div class="q">🔎 What did we tell the prospect about SAP clean-core support and data residency?</div>
+          <div class="msg"><div class="av" style="background:var(--sf)">AI</div><div><div class="nm">Slack AI <small>answer from 4 sources</small></div>
+            Solutions engineering confirmed clean-core compatibility in the discovery call recap and pointed to the published integration guide. On data residency, the team shared the EU hosting option and the security whitepaper. The open item is a question about retention periods, which is with Legal.
+            <div class="src"><span>＃solutions-engineering · thread</span><span>Security whitepaper · Drive</span><span>Opportunity · Salesforce</span><span>Discovery recap · Canvas</span></div></div></div>
+        </div>
+        <div class="pane" id="t2" role="tabpanel" aria-labelledby="b2">
+          <div class="msg"><div class="av" style="background:#2EB67D">SE</div><div><div class="nm">Solutions Engineer <small>10:42</small></div>Tech validation is done. The customer's architect signed off on the job-chain design.</div></div>
+          <div class="msg"><div class="av" style="background:#6B4FBB">AG</div><div><div class="nm">Deal Agent <small>Agentforce · 10:43</small></div>This sounds like the Technical Validation exit criteria. Should I update the opportunity?
+            <ul><li>Stage: Technical Validation → Proposal</li><li>Next step: send commercial proposal by Friday</li></ul>
+            <div class="act"><span>✓ Update record</span><span>Edit first</span></div></div></div>
+        </div>
+        <div class="pane" id="t3" role="tabpanel" aria-labelledby="b3">
+          <div class="msg"><div class="av" style="background:var(--sf)">AI</div><div><div class="nm">Recap <small>07:30 · your channels since yesterday</small></div>
+            <ul><li><b>＃deal-emea-sap-migration</b> moved to Proposal. Legal still owes an answer on retention.</li><li><b>＃product-rmj</b> is planning release notes for next week's update. Customer-facing FAQ is due Thursday.</li><li><b>＃sales-leadership</b> has two deals over $100K with close dates this month that have had no activity for 10+ days.</li></ul></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="illus">Illustrative mock-up. Channel names, people and content are fictional and don't show Redwood data.</p>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section id="agents" class="dark" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow rv">Agentforce in Slack</p>
+    <h2 class="rv" style="color:#fff">Three agents with specific jobs.</h2>
+    <p class="lede rv">Not "AI everywhere." Each agent has a trigger, a decision it makes and an action it takes, and a person can approve or override every step.</p>
+    <div class="grid g3">
+      <div class="agent rv"><h3>Deal Agent</h3><dl><dt>Trigger</dt><dd>Something that sounds like a stage change is posted in a deal channel</dd><dt>Decides</dt><dd>Whether the stage's exit criteria are met and which fields need updating</dd><dt>Acts</dt><dd>Suggests the record update inline. It writes to Salesforce once the owner confirms</dd></dl></div>
+      <div class="agent rv"><h3>Answer Agent</h3><dl><dt>Trigger</dt><dd>A prospect question or RFP item is posted in a channel</dd><dt>Decides</dt><dd>Whether an approved answer already exists in Slack threads, docs or past RFPs</dd><dt>Acts</dt><dd>Drafts a sourced answer, or sends it to the right SME with context attached</dd></dl></div>
+      <div class="agent rv"><h3>Renewal Prep Agent</h3><dl><dt>Trigger</dt><dd>90 days before a customer renewal date</dd><dt>Decides</dt><dd>Which usage, support and relationship signals are relevant</dd><dt>Acts</dt><dd>Opens a renewal channel with a briefing and a draft agenda for the account team</dd></dl></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof" class="alt">
+  <div class="wrap">
+    <p class="eyebrow rv">Proof</p>
+    <h2 class="rv">Other customers are already seeing results.</h2>
+    <div class="proof">
+      <div class="card rv">
+        <div class="big-stat">97 min</div>
+        <p style="font-size:18px;margin:12px 0 8px">saved per user each week, on average, by customers using Slack AI to find answers and distill knowledge.</p>
+        <p class="hint">Source: Salesforce internal analysis, as published in <a href="https://www.salesforce.com/news/stories/slack-ai-news-update/" target="_blank" rel="noopener">Salesforce Brings Slack AI to All Paid Customers</a>. For comparison, this model assumes much less than that for Redwood.</p>
+      </div>
+      <div class="card rv">
+        <span class="tag">Enterprise Search · EasyPark Group</span>
+        <blockquote style="margin-top:18px">"Enterprise search in Slack delivers exactly that."<cite>Senior IT Systems Engineer, EasyPark Group, on needing one view across every data source. <a href="https://slack.com/features/enterprise-search" target="_blank" rel="noopener">slack.com/features/enterprise-search</a></cite></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="wrap">
+    <p class="eyebrow rv">Roadmap</p>
+    <h2 class="rv">Three phases, set against dates we already know.</h2>
+    <p class="lede rv">Each phase ends with a measurable result that opens the next one.</p>
+    <div class="grid g3">
+      <div class="phase rv"><div class="when">Now → 31 Oct 2026</div><h3>Decide &amp; lock</h3><ul><li>Check the model inputs against Redwood's actuals</li><li>Agree seat count and term</li><li>Final approval and written offer</li></ul><div class="ms"><b>Milestone</b>Order form signed at $30 per user per month before the offer expires</div></div>
+      <div class="phase rv"><div class="when">Nov 2026 → Jan 2027</div><h3>Switch on</h3><ul><li>Turn on Slack AI and recaps for everyone</li><li>Connect Enterprise Search to Redwood's main knowledge sources</li><li>Pilot Sales Elevate with one sales team</li></ul><div class="ms"><b>Milestone</b>Live before the January renewal date, so no seat ever pays the renewal rate</div></div>
+      <div class="phase rv"><div class="when">Q1 → Q2 2027</div><h3>Measure &amp; expand</h3><ul><li>Roll Sales Elevate out to every seller</li><li>Launch the first Agentforce agent in deal channels</li><li>Compare actuals with this model at 90 days</li></ul><div class="ms"><b>Milestone</b>AI licence consolidation plan agreed, based on measured Slack AI adoption</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="dark close" id="close">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2 style="color:#fff">Approve the Enterprise+ upgrade by October 31.</h2>
+    <p class="lede" style="margin-bottom:0">Send us your three numbers and we'll turn every estimate above into a Redwood actual. Then we'll finalise the written offer at $30 per user per month for the two-year term.</p>
+    <div class="ctas">
+      <a class="btn pri" id="ctaMail" href="#">Send us your numbers</a>
+      <a class="btn sec" href="#roi" style="color:#fff">Revisit the model</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:#C9D6EA">Confidential · Prepared for Redwood Software Leadership · September 2026</b></p>
+    <p><b style="color:#C9D6EA">Basis of preparation.</b> Every figure in this model is an input you can change. Defaults for AI spend, headcount and time are Salesforce outside-in estimates that Redwood hasn't confirmed. Pricing: Enterprise+ at $30 per user per month, for a two-year term with quarterly billing, with seats added during the term at the same rate. The offer is valid through 10/31/2026 and subject to final approval and a written offer. The renewal-path rate is an illustrative estimate, not a quote. Sales-impact drivers carry a credit factor because Slack is only one of many factors. Figures exclude taxes and implementation.</p>
+    <p>This is a discussion document, not a quotation or an offer. Forward-looking capabilities and architecture are subject to Salesforce roadmap confirmation. Product mock-ups are illustrative.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const N=id=>parseFloat($(id).value)||0;
+const money=v=>(v<0?"-":"")+"$"+Math.abs(Math.round(v)).toLocaleString();
+const moneyK=v=>{const a=Math.abs(v);
+  if(a>=1e6)return (v<0?"-":"")+"$"+(a/1e6).toFixed(2)+"M";
+  if(a>=1e3)return (v<0?"-":"")+"$"+Math.round(a/1e3)+"K";
+  return money(v);};
+const CONTACT="prowles@salesforce.com";
+
+/* ---------- input definitions (defaults = original value model) ---------- */
+const KIND={c:"Confirmed term",y:"Redwood's own data",e:"Our estimate — please correct"};
+const GROUPS=[
+ {t:"Redwood's current AI tool spend",open:true,f:[
+  ['aiSpend','Annual AI tooling spend',409800,0,2000000,1000,'Claude, OpenAI, Gemini and similar — licences plus API','e',"Estimated at 683 users × $50/month using industry comparables. Please confirm your actual AI spend.",'Rough estimate — please adjust'],
+  ['aiKnow','% of AI spend on general knowledge work',60,0,100,1,'not engineering or product','e',"Our estimate. Engineering and product AI is excluded because Redwood builds agentic automation, and Slack isn't meant to replace that work."],
+  ['aiDisp','% of that knowledge work Slack AI absorbs',40,0,100,1,'','e',"Two filters in sequence: remove engineering/product first, then Slack absorbs this share of what's left. 60% × 40% = 24% of total AI spend. As a sense-check only, Section's AI Proficiency Report (Jan 2026) found 59% of workplace AI use cases are basic search and drafting."],
+  ['aiGrow','Annual growth in AI spend %',25,0,100,1,'displacement applies to a growing line','e',"Our estimate. Enterprise AI spend is rising for most organisations. Set to 0 to hold it flat."]]},
+ {t:"Redwood's people",f:[
+  ['reps','Sales reps working deals in CRM',100,0,400,1,'','e',"Our outside-in estimate of quota-carrying sellers. Please confirm or correct. If Sales Elevate goes to everyone who touches opportunities, this number goes up."],
+  ['repRate','Their fully loaded $/hr',75,20,250,1,'','e',"Our estimate of fully loaded hourly cost: salary, benefits, tax and overhead."],
+  ['repHrs','Hours/rep/week on CRM admin',4,0,20,0.5,'','e',"Our estimate of weekly time spent updating CRM records and chasing deal status."],
+  ['repGain','% of that admin automated by Slack',7,0,60,1,'Sales Elevate average is 53%','e',"Salesforce measures an average 53% reduction among Sales Elevate customers. We use 7%, about an eighth of that, because we'd rather understate it."],
+  ['ftes','Everyone else on Slack',600,0,1500,1,'all users except the reps above','e',"Everyone on Slack except the sales reps above, so nobody is counted twice."],
+  ['fteCost','Their fully loaded $/yr',100000,40000,300000,1000,'','e',"Our estimate of fully loaded annual cost for a general knowledge worker."],
+  ['fteManual','% of time on basic knowledge work',25,0,60,1,'search, reporting, admin','e',"Our estimate of time spent on basic search, reporting and admin tasks."],
+  ['fteGain','% of that work automated by Slack',2,0,30,0.5,'published benchmark is 26%','e',"Salesforce's published benchmark is 26%. We use 2%, near the bottom of the range, because org-wide productivity claims are the easiest part of a business case to doubt."],
+  ['real','Realisation factor on recovered time %',50,0,100,5,'set to 100 to see the gross','e',"Our convention, not a benchmark. Saved hours only count as value where they're actually put to other use."]]},
+ {t:"Sales impact",sub:"optional",f:[
+  ['deals','Opportunities worked per year',2000,0,6000,50,'new business and expansion, excluding renewals','e',"Our estimate: about 20 per seller, deliberately at the low end of 2026 B2B SaaS benchmarks. Renewals are excluded."],
+  ['win','Current win rate %',25,0,80,1,'','e',"Our estimate. The 2026 B2B SaaS median is 24%."],
+  ['asp','Average deal size',65000,5000,500000,1000,'','e',"Our estimate, blended across enterprise and long-tail products."],
+  ['gm','Gross margin %',60,0,100,1,'','e',"Our estimate of gross margin."],
+  ['winUp','Win-rate uplift %',5,0,20,0.5,'Slack average is 9%','e',"Slack customers average a 9% win-rate increase. We use 5%."],
+  ['attr','Credit to Slack %',10,0,100,1,'it is one factor of many','e',"Only a fraction of any win-rate change is fairly credited to Slack."]]},
+ {t:"Slack contract",f:[
+  ['curSeats','Current seats',711,0,1500,1,'paid seats today','y',"Your current paid seat count."],
+  ['curRate','Current $/user/mo',17.155,0,40,0.005,'blended across your current contract','y',"Blended rate from your current Slack contract."],
+  ['newSeats','Enterprise+ seats (upgrade now)',685,0,1500,1,'this offer','c',"Seat count in the Enterprise+ proposal. Seats added during the term stay at the locked rate."],
+  ['newRate','Enterprise+ $/user/mo',30,0,60,0.5,'valid through 10/31/2026','c',"$30 per user per month for a two-year term. Valid through 10/31/2026, subject to final approval and a written offer.",'Offer — subject to approval'],
+  ['renewSeats','Users expected at renewal',712,0,1500,1,'prices both paths for the same people','e',"We project 710–730 users by January 2027. Both paths are priced at this number.",'Projected'],
+  ['defRate','Renewal-path $/user/mo',40,20,70,0.5,'illustrative — not a quote','e',"An illustrative estimate of the Enterprise+ rate if you upgrade at renewal in January 2027. It is not a quotation.",'Illustrative estimate'],
+  ['mToRenew','Months until your renewal',4,0,24,1,'January 2027','c',"Your Slack renewal is in January 2027. After that date the deferred path pays the renewal rate."]]}
+];
+const PROV={},LABEL={};
+GROUPS.forEach(g=>g.f.forEach(f=>{PROV[f[0]]=[f[7],f[8],f[9]];LABEL[f[0]]=f[1];}));
+
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+$('groups').innerHTML=GROUPS.map(g=>`<details class="grp"${g.open?' open':''}><summary>${g.t}${g.sub?`<small>${g.sub}</small>`:''}</summary>`+
+  g.f.map(([id,lab,val,mn,mx,st,nt,k,tip,ko])=>
+   `<div class="fld"><div class="top"><label for="${id}">${lab}<i class="prov ${k}" tabindex="0" aria-label="Source: ${esc(ko||KIND[k])}">${k==='e'?'?':'i'}<span class="tip" role="tooltip"><b>${ko||KIND[k]}</b>${esc(tip)}</span></i></label>`+
+   `<input class="num" type="number" id="${id}" value="${val}" step="${st}" min="${mn}"></div>`+
+   `<input type="range" data-for="${id}" min="${mn}" max="${mx}" step="${st}" value="${val}" aria-label="${esc(lab)} slider">`+
+   (nt?`<div class="nt">${nt}</div>`:'')+`</div>`).join('')+`</details>`).join('');
+
+document.querySelectorAll('input[type=range]').forEach(r=>{
+  r.addEventListener('input',()=>{$(r.dataset.for).value=r.value;calc();});
+});
+document.querySelectorAll('input.num').forEach(n=>{
+  n.addEventListener('input',()=>{const r=document.querySelector(`input[data-for="${n.id}"]`);if(r)r.value=n.value;calc();});
+});
+function setVal(id,v){$(id).value=v;const r=document.querySelector(`input[data-for="${id}"]`);if(r)r.value=v;}
+
+const PRESETS={
+ cons:{defRate:35,renewSeats:710,aiKnow:50,aiDisp:25,aiGrow:0,repGain:4,fteGain:1,winUp:3,attr:5,real:40},
+ base:{defRate:40,renewSeats:712,aiKnow:60,aiDisp:40,aiGrow:25,repGain:7,fteGain:2,winUp:5,attr:10,real:50},
+ ups: {defRate:40,renewSeats:730,aiKnow:70,aiDisp:55,aiGrow:35,repGain:12,fteGain:2.5,winUp:9,attr:12,real:60}
+};
+let CURRENT='base';
+function loadPreset(k){CURRENT=k;const p=PRESETS[k];for(const x in p)setVal(x,p[x]);
+  document.querySelectorAll('.presets button').forEach(b=>b.classList.toggle('on',b.dataset.p===k));calc();}
+document.querySelectorAll('.presets button').forEach(b=>b.onclick=()=>loadPreset(b.dataset.p));
+
+function benefitFor(key){
+  const o=(key===CURRENT)?{}:(PRESETS[key]||{});
+  const v=k=>(k in o)?o[k]:N(k);
+  const R=v('real')/100;
+  return v('aiSpend')*(v('aiKnow')/100)*(v('aiDisp')/100)
+   + v('repHrs')*v('reps')*47*v('repRate')*(v('repGain')/100)*R
+   + v('ftes')*(v('fteManual')/100)*v('fteCost')*(v('fteGain')/100)*R
+   + v('deals')*(v('win')/100)*(v('winUp')/100)*v('asp')*(v('gm')/100)*(v('attr')/100);
+}
+function drawScenarios(){
+  const meta=[['cons','Conservative'],['base','Base'],['ups','Upside']];
+  const vals=meta.map(([k])=>benefitFor(k)),mx=Math.max(...vals,1);
+  $('scenChart').innerHTML=meta.map(([k,l],i)=>`<div class="scenRow ${k===CURRENT?'on':''}" data-s="${k}" role="button" tabindex="0"><div class="scenName">${l}</div><div class="scenTrack"><i style="width:${Math.max(3,vals[i]/mx*100)}%"></i></div><div class="scenVal">${money(vals[i])}</div></div>`).join('');
+  $('scenChart').querySelectorAll('.scenRow').forEach(r=>{r.onclick=()=>loadPreset(r.dataset.s);r.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();loadPreset(r.dataset.s);}};});
+}
+
+const OPEN=new Set();
+function drawTimeline(mPre,curMo,newMo,growMo,defMo,sA,sB){
+  const d=[],n=[];
+  for(let m=0;m<24;m++){d.push(m<mPre?curMo:defMo);n.push(m<mPre?newMo:growMo);}
+  const mx=Math.max(...d,...n,1);
+  $('barsDefer').innerHTML=d.map((v,m)=>`<i class="${m>=mPre?'post':''}" style="height:${v/mx*100}%" title="Month ${m+1}: ${money(v)}"></i>`).join('');
+  $('barsNow').innerHTML=n.map((v,m)=>`<i style="height:${v/mx*100}%" title="Month ${m+1}: ${money(v)}"></i>`).join('');
+  const pct=m=>((m+0.5)/24*100);
+  $('ticks').innerHTML=`<b style="left:${pct(0)}%;color:var(--sf)">Sign by 10/31</b>`+
+    (mPre>0&&mPre<24?`<b style="left:${mPre/24*100}%;color:var(--rw)">Renewal (Jan 2027)</b>`:'')+
+    `<b style="left:${pct(23)}%">Month 24</b>`;
+  $('tlDef').textContent=moneyK(sA);$('tlNow').textContent=moneyK(sB);
+  $('tlDiff').textContent=moneyK(Math.abs(sA-sB));
+  $('tlDiff').className=sA>=sB?'pos':'negv';
+  $('tlDiffLab').textContent=sA>=sB?'Saved by upgrading now':'Extra cost of upgrading now';
+}
+
+function calc(){
+  const curAnnual=N('curSeats')*N('curRate')*12, newAnnual=N('newSeats')*N('newRate')*12;
+  const incr=newAnnual-curAnnual;
+  const TERM=24,mPre=Math.max(0,Math.min(TERM,N('mToRenew'))),mPost=TERM-mPre;
+  const curMo=N('curSeats')*N('curRate'),newMo=N('newSeats')*N('newRate');
+  const growMo=N('renewSeats')*N('newRate'),defMo=N('renewSeats')*N('defRate');
+  const aPre=curMo*mPre,aPost=defMo*mPost,sA=aPre+aPost;
+  const bPre=newMo*mPre,bPost=growMo*mPost,sB=bPre+bPost;
+  $('hPre').textContent=`First ${mPre} months`;$('hPost').textContent=`Remaining ${mPost} months`;
+  $('licTbl').innerHTML=
+   `<tr><td>Defer, upgrade at renewal</td><td>${money(aPre)}</td><td>${money(aPost)}</td><td>${money(sA)}</td></tr>`+
+   `<tr><td>Upgrade now</td><td>${money(bPre)}</td><td>${money(bPost)}</td><td>${money(sB)}</td></tr>`+
+   `<tr class="tot"><td>Difference</td>`+[[aPre,bPre],[aPost,bPost],[sA,sB]].map(([a,b])=>{const d=a-b;return `<td class="${d>=0?'pos':'negv'}">${money(d)}</td>`}).join('')+`</tr>`;
+  $('licNote').textContent=sA>=sB
+   ?`On licensing alone, upgrading now is ${money(sA-sB)} cheaper over the 24-month term than deferring, before any other benefit.`
+   :`On licensing alone, upgrading now costs ${money(sB-sA)} more over the 24-month term. The case has to rest on the drivers below.`;
+  drawTimeline(mPre,curMo,newMo,growMo,defMo,sA,sB);
+
+  const R=N('real')/100;
+  const ai=N('aiSpend')*(N('aiKnow')/100)*(N('aiDisp')/100);
+  const crm=N('repHrs')*N('reps')*47*N('repRate')*(N('repGain')/100)*R;
+  const fte=N('ftes')*(N('fteManual')/100)*N('fteCost')*(N('fteGain')/100)*R;
+  const sales=N('deals')*(N('win')/100)*(N('winUp')/100)*N('asp')*(N('gm')/100)*(N('attr')/100);
+  const p=v=>v+"%";
+  const rows=[
+   {n:'AI tooling spend displaced',v:ai,t:'cash',en:'Slack AI · recaps · AI answers',
+    f:`${money(N('aiSpend'))} AI spend × ${p(N('aiKnow'))} general knowledge work × ${p(N('aiDisp'))} absorbed by Slack = <b>${money(ai)}</b>`,
+    w:`Two filters applied in sequence, so the effective rate against total AI spend is <b>${(N('aiKnow')*N('aiDisp')/100).toFixed(0)}%</b>, not ${p(N('aiDisp'))}. Growing at ${p(N('aiGrow'))} a year, this driver reaches ${money(ai*(1+N('aiGrow')/100))} in year two.`,
+    k:['aiSpend','aiKnow','aiDisp']},
+   {n:'CRM admin time recovered',v:crm,t:'time',en:'Sales Elevate · Agentforce Deal Agent',
+    f:`${N('reps')} reps × ${N('repHrs')} hrs/week × ${p(N('repGain'))} automated × 47 weeks × ${money(N('repRate'))}/hr × ${p(N('real'))} realisation = <b>${money(crm)}</b>`,
+    w:`Salesforce measures an average <b>53%</b> reduction in opportunity-management time among Sales Elevate customers. This model uses <b>${p(N('repGain'))}</b>.`,
+    k:['reps','repHrs','repGain','repRate','real']},
+   {n:'Org-wide search and admin time',v:fte,t:'time',en:'Enterprise Search · Slack AI',
+    f:`${N('ftes')} users × ${p(N('fteManual'))} basic knowledge work × ${p(N('fteGain'))} automated × ${money(N('fteCost'))} × ${p(N('real'))} realisation = <b>${money(fte)}</b>`,
+    w:`Enterprise Search is only on Enterprise+. Salesforce's published benchmark for this driver is <b>26%</b>. This model uses <b>${p(N('fteGain'))}</b>. Sales reps are excluded here so nobody is counted twice.`,
+    k:['ftes','fteManual','fteGain','fteCost','real']},
+   {n:'Sales impact (win rate)',v:sales,t:'revenue',en:'Sales Elevate · deal channels · Answer Agent',
+    f:`${N('deals')} opps × ${p(N('win'))} win rate × ${p(N('winUp'))} uplift × ${money(N('asp'))} × ${p(N('gm'))} margin × ${p(N('attr'))} credited = <b>${money(sales)}</b>`,
+    w:`Competitive opportunities only, with renewals excluded. Slack customers report an average <b>9%</b> win-rate increase. This model uses ${p(N('winUp'))} and credits only ${p(N('attr'))} of it to Slack. This is deliberately the smallest and softest driver.`,
+    k:['deals','win','winUp','asp','gm','attr']}
+  ];
+  const tot=rows.reduce((a,r)=>a+r.v,0),mx=Math.max(...rows.map(r=>r.v),1);
+  $('drvTbl').innerHTML=rows.map((r,i)=>{
+    const o=OPEN.has(i);
+    const srcs=r.k.map(k=>{const [kd,tip]=PROV[k];return `<div><i class="prov ${kd}" style="cursor:default">${kd==='e'?'?':'i'}</i> <b>${LABEL[k]}</b> — ${esc(tip)}</div>`}).join('');
+    return `<tr><td><button class="drvbtn" data-i="${i}" aria-expanded="${o}">${r.n}</button>${r.t==='cash'?' <span class="tag ok">cash</span>':''}<div class="enabled">Enabled by: ${r.en}</div></td>`+
+     `<td>${money(r.v)}</td><td><div class="bar"><i style="width:${Math.max(2,r.v/mx*100)}%"></i></div><span class="nt" style="font-size:12px;color:var(--mut)">${tot>0?Math.round(r.v/tot*100):0}%</span></td></tr>`+
+     `<tr class="detail" style="display:${o?'table-row':'none'}"><td colspan="3"><b>How this is calculated</b><code>${r.f}</code><div class="src">${r.w}</div><div class="src"><b>Where each input comes from</b>${srcs}</div></td></tr>`;
+  }).join('')+`<tr class="tot"><td>Total at full adoption</td><td>${money(tot)}</td><td></td></tr>`;
+  $('drvTbl').querySelectorAll('.drvbtn').forEach(c=>c.onclick=()=>{const i=+c.dataset.i;OPEN.has(i)?OPEN.delete(i):OPEN.add(i);calc();});
+
+  const top=Math.max(...rows.map(r=>r.v)),topPct=tot>0?top/tot*100:0,cashPct=tot>0?ai/tot*100:0;
+  $('concNote').innerHTML=`The largest single driver is <b>${Math.round(topPct)}%</b> of the total ${topPct>40?'<span class="negv">— above the usual 40% concentration threshold, so check whether that driver is carrying too much of the case</span>':'— within the usual 40% concentration threshold'}. Hard-dollar items are <b>${Math.round(cashPct)}%</b> of the total. The rest is recovered time, counted at ${p(N('real'))} realisation. The licence saving is left out here because it's shown in its own table, and counting it twice would overstate the case.`;
+
+  const g=1+N('aiGrow')/100,nonCash=crm+fte+sales;
+  const b1=(ai+nonCash)*0.50,b2=(ai*g+nonCash)*0.85,licSave=sA-sB;
+  $('rampNote').innerHTML=`Adjusted for rollout (50% in year one, 85% in year two), that's <b>${money(b1+b2)}</b> of benefit over the term. Add the <b>${money(licSave)}</b> licence saving and the total advantage over deferring is <b class="${b1+b2+licSave>=0?'pos':'negv'}">${money(b1+b2+licSave)}</b>.`;
+
+  let pay;
+  if(incr<=0)pay="Immediate";
+  else if(b1>=incr)pay=Math.max(1,Math.round(incr/(b1/12)))+" mo";
+  else{const m=12+(incr-b1)/(b2/12);pay=(m>36?">36":Math.round(m))+" mo";}
+
+  const people=Math.max(N('curSeats'),1);
+  $('hBenefit').textContent=moneyK(tot);
+  $('hIncr').textContent=moneyK(incr);
+  $('kIncr').classList.toggle('neg',incr>0);
+  $('hPay').textContent=pay;
+  $('hLic').textContent=moneyK(licSave);$('hLic').className=licSave>=0?'pos':'negv';
+  $('heroSave').textContent=moneyK(licSave);
+  drawScenarios();
+  $('simple').innerHTML=`Moving to Enterprise+ costs <b>${money(incr)}</b> a year more than Redwood pays today. That's <b>${money(incr/people)}</b> per person per year, or <b>${money(incr/people/12)}</b> per month. Compared with waiting for your January renewal, it's <span class="big">${money(licSave)} cheaper</span> over the two-year term. Everything else in this model is extra value on top.`;
+}
+calc();
+
+/* ---------- export ---------- */
+function snapshot(){
+  const L=[];document.querySelectorAll('input.num').forEach(i=>L.push(`  ${LABEL[i.id]}: ${i.value}`));
+  return ["Slack Enterprise+ value model — Redwood Software","Generated: "+new Date().toISOString().slice(0,10),"",
+   "RESULTS","  Annual benefit at full adoption: "+$('hBenefit').textContent,"  Extra spend per year: "+$('hIncr').textContent,
+   "  Payback: "+$('hPay').textContent,"  Licence saving vs deferring: "+$('hLic').textContent,"","INPUTS USED",...L,"","Notes / corrections:",""].join("\n");
+}
+function mailHref(t){return "mailto:"+CONTACT+"?subject="+encodeURIComponent("Slack Enterprise+ value model — our numbers")+"&body="+encodeURIComponent(t);}
+function flash(m){const el=$('sendMsg');el.textContent=m;el.style.display='block';clearTimeout(window.__f);window.__f=setTimeout(()=>el.style.display='none',6000);}
+function showPanel(m){const t=snapshot();$('sendText').value=t;$('sendPanel').style.display='block';$('mailLink').href=mailHref(t);try{$('sendText').focus();$('sendText').select();}catch(e){}if(m)flash(m);return t;}
+async function tryCopy(t){try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(t);return true;}}catch(e){}try{const ta=$('sendText');ta.select();return document.execCommand('copy');}catch(e){return false;}}
+$('copyBtn').onclick=async()=>{const t=showPanel();const ok=await tryCopy(t);flash(ok?"Summary copied to your clipboard.":"This viewer blocks clipboard access. The text is below, ready to copy.");};
+$('printBtn').onclick=()=>{try{window.print();}catch(e){flash("This viewer blocks printing. Open the page in a browser and use Print.");}};
+$('sendBtn').onclick=()=>showPanel("Your figures are below. Copy them or use the email link. Nothing is sent automatically.");
+$('ctaMail').onclick=e=>{e.preventDefault();location.hash='roi';showPanel("Here are your figures. Review them, then use the email link to send.");};
+
+/* ---------- pain cards ---------- */
+document.querySelectorAll('.pain').forEach(c=>{
+  const t=()=>{const f=c.classList.toggle('flip');c.setAttribute('aria-expanded',f);};
+  c.addEventListener('click',t);
+  c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}});
+});
+
+/* ---------- mock tabs ---------- */
+const tabs=[...document.querySelectorAll('.mock [role=tab]')];
+tabs.forEach(b=>b.onclick=()=>{
+  tabs.forEach(x=>{x.setAttribute('aria-selected',x===b);$(x.getAttribute('aria-controls')).classList.toggle('on',x===b);});
+  $('mockCh').textContent=b.dataset.ch;
+});
+
+/* ---------- nav drawer ---------- */
+const bg=document.querySelector('.burger'),nl=$('navlinks');
+bg.onclick=()=>{const o=nl.classList.toggle('open');bg.setAttribute('aria-expanded',o);};
+nl.querySelectorAll('a').forEach(a=>a.onclick=()=>{nl.classList.remove('open');bg.setAttribute('aria-expanded',false);});
+
+/* ---------- reveal ---------- */
+const rv=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+  rv.forEach(el=>io.observe(el));
+}else rv.forEach(el=>el.classList.add('in'));
+})();
+</script>
+</body>
+</html>
